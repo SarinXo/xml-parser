@@ -2,12 +2,10 @@ package org.example.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Data
 @AllArgsConstructor
 public class XmlObject {
     @JsonProperty("ID")
@@ -40,4 +38,64 @@ public class XmlObject {
     private Byte isactual;
     @JsonProperty("ISACTIVE")
     private Byte isactive;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getObjectid() {
+        return objectid;
+    }
+
+    public UUID getObjectguid() {
+        return objectguid;
+    }
+
+    public Long getChangeid() {
+        return changeid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTypename() {
+        return typename;
+    }
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public Long getOpertypeid() {
+        return opertypeid;
+    }
+
+    public Long getPrevid() {
+        return previd;
+    }
+
+    public Long getNextid() {
+        return nextid;
+    }
+
+    public LocalDate getUpdatedate() {
+        return updatedate;
+    }
+
+    public LocalDate getStartdate() {
+        return startdate;
+    }
+
+    public LocalDate getEnddate() {
+        return enddate;
+    }
+
+    public Byte getIsactual() {
+        return isactual;
+    }
+
+    public Byte getIsactive() {
+        return isactive;
+    }
 }
