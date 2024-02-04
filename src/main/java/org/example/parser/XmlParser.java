@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class XmlParser<T> implements AutoCloseable{
+public class XmlParser<T> implements XmlParsable<T>{
 
     private final InputStream inputStream;
     private final Class<T> clazz;
@@ -53,8 +53,9 @@ public class XmlParser<T> implements AutoCloseable{
     }
 
     /**
-     * Берёт recordsCount записей или читает документ до конца и возвращает все оставшиеся.
-     * Если документ был прочитан, то возвращает пустой массив.
+     * @apiNote
+     * Берёт recordsCount записей. Если записей меньше, то читает документ до конца.
+     * Использовать с {@link  XmlParser#hasNext()}. Объект данного класса может пройтись по XML файлу только 1 раз.
      * @return ArrayList or Empty ArrayList
      */
     public List<T> getNextPart(int recordsCount) {

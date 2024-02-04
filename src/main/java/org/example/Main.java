@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.dto.XmlObject;
+import org.example.parser.XmlParsable;
 import org.example.parser.XmlParser;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class Main {
         File file = new File(currentDirectory, relativePath);
 
         try (InputStream in = new FileInputStream(file);
-             XmlParser<XmlObject> xmlParser = new XmlParser<>(in, "OBJECT", XmlObject.class)) {
+             XmlParsable<XmlObject> xmlParser = new XmlParser<>(in, "OBJECT", XmlObject.class)) {
             List<XmlObject> list;
             while (xmlParser.hasNext()) {
                 list = xmlParser.getNextPart(RECORDS_PER_ITERATION);
